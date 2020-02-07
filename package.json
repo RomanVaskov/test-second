@@ -1,0 +1,52 @@
+{
+  "name": "my-project-wp",
+  "version": "1.0.0",
+  "description": "my project with webpack, scss, babbel",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config build/webpack.build.conf.js",
+    "start": "webpack-dev-server --config build/webpack.dev.conf.js"
+  },
+  "keywords": [
+    "js",
+    "webpack",
+    "scss",
+    "babbel",
+    "img"
+  ],
+  "author": "Roman Vaskov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.2",
+    "terser-webpack-plugin": "^2.3.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "bootstrap": "^4.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-id-generator": "^3.0.0",
+    "reactstrap": "^8.4.1",
+    "styled-components": "^5.0.0"
+  }
+}
