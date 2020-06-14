@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import './randomChar.css';
-import GotService from "../../services/gotService";
 import Spinner from "../spinner";
 import ErrorMessage from "../errorMessage";
+import GotService from "../../services/gotService";
 
 export default class RandomChar extends Component {
-
-    constructor() {
-        super();
-        this.updateChar();
-    }
 
     gotService = new GotService();
 
@@ -17,6 +12,15 @@ export default class RandomChar extends Component {
         char: {},
         loading: true,
         error: false
+    }
+
+    componentDidMount() {
+        this.updateChar();
+        this.timerId = setInterval(() => this.updateChar(), 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerId);
     }
 
     onCharLoaded = (char) => {
@@ -33,7 +37,7 @@ export default class RandomChar extends Component {
         })
     }
 
-    updateChar() {
+    updateChar = () => {
         const id = Math.floor(Math.random() * 150 + 25); //25 - 150 interval of chars
         // const id = 10000000; // error
         this.gotService.getCharacter(id)
