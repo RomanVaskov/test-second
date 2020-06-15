@@ -4,7 +4,7 @@ export default class GotService {
         this._apiBase = 'https://anapioficeandfire.com/api';
     }
 
-    async getResource(url) {
+    getResource = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
 
         if (!res.ok) {
@@ -14,30 +14,30 @@ export default class GotService {
         return await res.json();
     };
 
-    async getAllCharacters() {
+    getAllCharacters = async () => {
         const res = await this.getResource(`/characters?page=5&pageSize=10`);
         return res.map(this._transformCharacter);
     }
-    async getCharacter(id) {
+    getCharacter = async (id) => {
         const character = await this.getResource(`/characters/${id}`);
         return this._transformCharacter(character);
     }
 
-    getAllHouses() {
+    getAllHouses = () => {
         return this.getResource(`/houses/`);
     }
-    getHouse(id) {
+    getHouse = (id) => {
         return this.getResource(`/houses/${id}`);
     }
 
-    getAllBooks() {
+    getAllBooks = () => {
         return this.getResource(`/books/`);
     }
-    getBook(id) {
+    getBook = (id) => {
         return this.getResource(`/books/${id}`);
     }
 
-    _transformCharacter(char) {
+    _transformCharacter = (char) => {
         return {
             name: char.name,
             gender: char.gender,
@@ -47,7 +47,7 @@ export default class GotService {
         }
     }
 
-    _transformHouse(house) {
+    _transformHouse = (house) => {
         return {
             name: house.name,
             region: house.region,
@@ -58,7 +58,7 @@ export default class GotService {
         }
     }
 
-    _transformBook(book) {
+    _transformBook = (book) => {
         return {
             name: book.name,
             numberOfPages: book.numberOfPages,
